@@ -3,53 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banned Words</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Banned Words List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #ff0000;
+        }
+        .description {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #666;
+        }
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .controls select, .controls button {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ff0000; /* Red border for consistency */
+            border-radius: 4px;
+            background-color: #fff;
+            color: #ff0000; /* Red text for consistency */
+        }
+        .controls button {
+            background-color: #ff0000; /* Red button */
+            color: #fff;
+            cursor: pointer;
+        }
+        .controls button:hover {
+            background-color: #cc0000; /* Darker red on hover */
+        }
+        .category {
+            display: none;
+            margin-bottom: 20px;
+        }
+        .category.active {
+            display: block;
+        }
+        .category h2 {
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 4px;
+            color: #ff0000;
+        }
+        .word-list {
+            list-style: none;
+            padding: 0;
+        }
+        .word-list li {
+            background: #f9f9f9;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <h1>Banned Words</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#words">Word List</a></li>
-                <li><a href="#about">About</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="container">
+        <h1>Banned Words for Discord Server</h1>
 
-    <section id="home" class="hero-section">
-        <div class="hero-content">
-            <h2>Discover Banned Words</h2>
-            <p>Understand why certain words are banned and their impact on society.</p>
-            <input type="text" id="searchBar" placeholder="Search for a word...">
-            <button id="searchButton">Search</button>
+        <div class="description">
+            <p>This page contains a list of words and phrases that are banned on our Discord server. The list is categorized into different sections for easier management and reference. As new terms are added over time, they will be updated in this list to ensure the community remains safe and respectful. Please review the categories and make sure to follow the rules outlined.</p>
         </div>
-    </section>
 
-    <section id="words" class="word-list-section">
-        <h2>Word List</h2>
-        <div class="word-grid">
-            <!-- Sample Word Card -->
-            <div class="word-card">
-                <h3>Word: Example</h3>
-                <p>This word is banned due to its inappropriate use in public spaces.</p>
+        <div class="controls">
+            <select id="category-select" onchange="showCategory(this.value)">
+                <optgroup label="Select a category">
+                <option value="domain-extensions">Domain Extensions</option>
+                <option value="offensive-language">Offensive Language</option>
+                <option value="miscellaneous">Miscellaneous</option>
+            </select>
+        </div>
+
+        <div id="categories">
+            <div class="category" id="domain-extensions" data-category="Domain Extensions">
+                <h2>Domain Extensions</h2>
+                <ul class="word-list">
+                    <li>*.cf</li>
+                    <li>*.ga</li>
+                    <li>*.gq</li>
+                    <li>*.ml</li>
+                    <li>*.nl</li>
+                    <li>*.nz</li>
+                    <li>*.tk</li>
+                    <li>opensea.io</li>
+                    <li>sellix.io</li>
+                    <li>temu.com</li>
+                    <li>discord.com/invite/</li>
+                    <li>discord.gg/</li>
+                    <li>discord.gift</li>
+                    <li>t.me</li>
+                    <li>telegram.com</li>
+                    <li>telegram.me</li>
+                </ul>
             </div>
-            <!-- Repeat for each word -->
+
+            <div class="category" id="offensive-language" data-category="Offensive Language">
+                <h2>Offensive Language</h2>
+                <ul class="word-list">
+                    <li>beaner*</li>
+                    <li>bj*</li>
+                    <li>blowjob*</li>
+                    <li>boob*</li>
+                    <li>chank*</li>
+                    <li>ching chong*</li>
+                    <li>chink*</li>
+                    <li>clitoris*</li>
+                    <li>cock*</li>
+                    <li>coon*</li>
+                    <li>cum*</li>
+                    <li>faggot*</li>
+                    <li>foreskin*</li>
+                    <li>groom*</li>
+                    <li>hentai*</li>
+                    <li>hitler*</li>
+                    <li>ishowmeat*</li>
+                    <li>jiggaboo*</li>
+                    <li>kill yourself*</li>
+                    <li>kkk*</li>
+                    <li>kyke*</li>
+                    <li>kys*</li>
+                    <li>loli*</li>
+                    <li>masterbait*</li>
+                    <li>moon cricket*</li>
+                    <li>negro*</li>
+                    <li>Niger*</li>
+                    <li>Nigeria*</li>
+                    <li>nigga*</li>
+                    <li>nigger*</li>
+                    <li>penis*</li>
+                    <li>porch monkey*</li>
+                    <li>porn*</li>
+                    <li>pornhub.com</li>
+                    <li>rape*</li>
+                    <li>retard*</li>
+                    <li>semen*</li>
+                    <li>sex*</li>
+                    <li>sped*</li>
+                    <li>tranny*</li>
+                    <li>vagina*</li>
+                    <li>whigga*</li>
+                    <li>whigger*</li>
+                    <li>zhyd*</li>
+                    <li>zoophile*</li>
+                </ul>
+            </div>
+
+            <div class="category" id="miscellaneous" data-category="Miscellaneous">
+                <h2>Miscellaneous</h2>
+                <ul class="word-list">
+                    <li>discord.com/invite/</li>
+                    <li>discord.gg/</li>
+                    <li>discord.gift</li>
+                    <li>opensea.io</li>
+                    <li>sellix.io</li>
+                    <li>temu.com</li>
+                    <li>t.me</li>
+                    <li>telegram.com</li>
+                    <li>telegram.me</li>
+                </ul>
+            </div>
         </div>
-    </section>
+    </div>
 
-    <section id="about" class="about-section">
-        <h2>About This Project</h2>
-        <p>This website aims to provide awareness of harmful language and its impact.</p>
-    </section>
+    <script>
+        function showCategory(categoryId) {
+            const categories = document.querySelectorAll('.category');
+            categories.forEach(cat => {
+                if (categoryId === 'none' || cat.id === categoryId) {
+                    cat.classList.add('active');
+                } else {
+                    cat.classList.remove('active');
+                }
+            });
+        }
 
-    <footer>
-        <p>&copy; 2024 Banned Words | Designed by [Your Name]</p>
-    </footer>
+        function sortCategories() {
+            const categoriesContainer = document.getElementById('categories');
+            const categories = Array.from(categoriesContainer.getElementsByClassName('category'));
 
-    <script src="script.js"></script>
+            categories.sort((a, b) => {
+                const categoryA = a.getAttribute('data-category').toUpperCase();
+                const categoryB = b.getAttribute('data-category').toUpperCase();
+                if (categoryA < categoryB) return -1;
+                if (categoryA > categoryB) return 1;
+                return 0;
+            });
+
+            categoriesContainer.innerHTML = '';
+            categories.forEach(category => categoriesContainer.appendChild(category));
+        }
+    </script>
 </body>
 </html>
