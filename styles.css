@@ -8,202 +8,94 @@
 /* Body */
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #ff9f00, #ff4c4c); /* Darker sunset gradient */
+    background-color: #f4f4f4;
     color: #333;
-    margin: 0;
-    padding: 0;
-    height: 100vh; /* Full viewport height */
-    overflow-y: scroll; /* Allow vertical scrolling */
 }
 
-/* Header */
-header {
-    background-color: #ff6f61; /* Softer sunset orange */
-    color: #fff;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-}
-
-header h1 {
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-header nav ul {
-    list-style-type: none;
-    display: flex;
-}
-
-header nav ul li {
-    margin: 0 1rem;
-}
-
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* Hero Section */
-.hero-section {
-    height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    text-align: center;
-    padding-top: 70px; /* Space for fixed header */
-}
-
-.hero-section h2 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.hero-section p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.control-container {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-#searchBar, #searchButton {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 16px;
+/* Container */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
     background-color: #fff;
-    transition: background-color 0.3s, border-color 0.3s;
-}
-
-#searchBar:hover, #searchButton:hover {
-    background-color: #ffecb3;
-    border-color: #ffb600;
-}
-
-#searchButton {
-    background-color: #ff6f61;
-    color: #fff;
-    cursor: pointer;
-}
-
-#searchButton:hover {
-    background-color: #ff5e5b;
-}
-
-/* Word List Section */
-.word-list-section {
-    padding: 2rem;
-    color: #fff;
-    background-color: #ff6f61; /* Softer sunset orange */
-    border-radius: 8px;
-    margin: 2rem auto;
-    max-width: 90%;
-}
-
-.word-list-section h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 2.5rem;
-}
-
-.command-list-container {
-    max-width: 600px;
-    margin: 0 auto;
-    height: 500px; /* Set a fixed height */
-    overflow-y: auto; /* Enable vertical scrolling */
-}
-
-.category-title {
-    font-size: 20px;
-    font-weight: bold;
-    color: #fff; /* Light text for contrast */
-    background-color: #ff6f61; /* Softer sunset orange */
-    padding: 10px;
-    border
-
-
-.command-list {
-    background-color: #fff; /* White background for the command list */
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.command {
+/* Header */
+h1 {
+    text-align: center;
+    color: #ff0000;
+}
+
+/* Description */
+.description {
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #666;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.controls input, .controls select, .controls button {
     padding: 10px;
-    border-bottom: 1px solid #ddd;
-    transition: background-color 0.3s;
+    font-size: 16px;
+    border: 1px solid #ff0000;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #ff0000;
 }
 
-.command:last-child {
-    border-bottom: none;
-}
-
-.command:hover {
-    background-color: #ffe0b2; /* Light orange background on hover */
-}
-
-.command-name {
-    font-weight: bold;
-    color: #ff6f61; /* Softer sunset orange */
-}
-
-.command-description {
-    margin-top: 5px;
-    color: #666; /* Darker but softer text for descriptions */
-}
-
-/* About Section */
-.about-section {
-    background-color: #ff4c4c; /* Rich red tone */
-    padding: 2rem;
-    text-align: center;
-    border-radius: 8px;
-}
-
-.about-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+.controls button {
+    background-color: #ff0000;
     color: #fff;
+    cursor: pointer;
 }
 
-.about-section p {
-    color: #fff;
+.controls button:hover {
+    background-color: #cc0000;
 }
 
-/* Footer */
-footer {
-    background-color: #ff4c4c; /* Rich red tone */
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
-    margin-top: 2rem;
+/* Category */
+.category {
+    display: none;
+    margin-bottom: 20px;
+}
+
+.category.active {
+    display: block;
+}
+
+.category h2 {
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 4px;
+    color: #ff0000;
+}
+
+/* Word List */
+.word-list {
+    list-style: none;
+    padding: 0;
+}
+
+.word-list li {
+    background: #f9f9f9;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 4px;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .control-container {
+    .controls {
         flex-direction: column;
-    }
-    
-    #searchBar, #searchButton {
-        width: 90%;
-        max-width: none;
-    }
-
-    .command-list-container {
-        width: 90%;
-        max-width: none;
-        margin: 0 auto;
+        gap: 10px;
     }
 }
